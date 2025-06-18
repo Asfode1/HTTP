@@ -27,7 +27,7 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
     // Ограничение размера загружаемого файла (например, 10 МБ)
     r.Body = http.MaxBytesReader(w, r.Body, 10<<20)
 
-    file, header, err := r.FormFile("file")
+    file, header, err := r.FormFile("myFile")
     if err != nil {
         http.Error(w, "Ошибка получения файла", http.StatusBadRequest)
         return
